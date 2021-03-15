@@ -16,6 +16,8 @@
 		CAF56BCF25FD7A3100C6C788 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF56BCE25FD7A3100C6C788 /* FeedLoader.swift */; };
 		CAF56BF325FD7D0700C6C788 /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF56BF225FD7D0700C6C788 /* RemoteFeedLoaderTests.swift */; };
 		CAF56BF825FD863100C6C788 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF56BF725FD863100C6C788 /* RemoteFeedLoader.swift */; };
+		CAF56C0D25FF846600C6C788 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF56C0C25FF846500C6C788 /* FeedItemsMapper.swift */; };
+		CAF56C1225FF847200C6C788 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF56C1125FF847200C6C788 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		CAF56BCE25FD7A3100C6C788 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		CAF56BF225FD7D0700C6C788 /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 		CAF56BF725FD863100C6C788 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
+		CAF56C0C25FF846500C6C788 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
+		CAF56C1125FF847200C6C788 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				CAF56BF725FD863100C6C788 /* RemoteFeedLoader.swift */,
+				CAF56C0C25FF846500C6C788 /* FeedItemsMapper.swift */,
+				CAF56C1125FF847200C6C788 /* HTTPClient.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -282,6 +288,8 @@
 				CAF56B9D25FD795A00C6C788 /* ViewController.swift in Sources */,
 				CAF56B9B25FD795A00C6C788 /* AppDelegate.swift in Sources */,
 				CAF56BCF25FD7A3100C6C788 /* FeedLoader.swift in Sources */,
+				CAF56C1225FF847200C6C788 /* HTTPClient.swift in Sources */,
+				CAF56C0D25FF846600C6C788 /* FeedItemsMapper.swift in Sources */,
 				CAF56BCA25FD79B000C6C788 /* FeedItem.swift in Sources */,
 				CAF56BF825FD863100C6C788 /* RemoteFeedLoader.swift in Sources */,
 			);
