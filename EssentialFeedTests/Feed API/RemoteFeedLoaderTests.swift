@@ -30,10 +30,6 @@ class RemoteFeedLoaderTests: XCTestCase {
     
     func test_load_deliversErrorOnClientError(){
         let (sut, client) = makeSUT()
-//        expect(sut, toCompleteWith: failure(.connectivity), when: {
-//            let clientError = NSError(domain: "Test", code: 0)
-//            client.complete(with: clientError)
-//        })
         expect(sut, toCompleteWith: failure(.connectivity), when: {
             let clientError = NSError(domain: "Any error", code: 0)
             client.complete(with: clientError)
@@ -42,7 +38,7 @@ class RemoteFeedLoaderTests: XCTestCase {
     
     func test_load_deliversErrorOnNon200HTTPResponse(){
         let (sut, client) = makeSUT()
-        
+
         let samples = [199,201,300,400,500]
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWith: failure(.invalidData), when: {
@@ -68,19 +64,19 @@ class RemoteFeedLoaderTests: XCTestCase {
     }
     func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
             let (sut, client) = makeSUT()
-            
+
             let item1 = makeItem(
                 id: UUID(),
                 imageURL: URL(string: "http://another-url.com")!)
-            
+
             let item2 = makeItem(
                 id: UUID(),
                 description: "a description",
                 location: "a location",
                 imageURL: URL(string: "http://another-url.com")!)
-            
+
             let items = [item1.model, item2.model]
-            
+
             expect(sut, toCompleteWith: .success(items), when: {
                 let json = makeItemJSON([item1.json, item2.json])
                 client.complete(withStatuscode: 200, data: json)
@@ -113,8 +109,8 @@ class RemoteFeedLoaderTests: XCTestCase {
         let item =  FeedItem(id: id, description: description, location: location, imageURL: imageURL)
         let json = [
             "id": id.uuidString,
-            "deascription": description,
-            "lcoation": location,
+            "description": description,
+            "location": location,
             "image": imageURL.absoluteString
         ].reduce(into: [String: Any]()){ (acc, e) in
             if let value = e.value { acc[e.key] = value}
@@ -138,6 +134,7 @@ class RemoteFeedLoaderTests: XCTestCase {
             }
             exp.fulfill()
         }
+        action()
         wait(for: [exp], timeout: 1.0)
     }
     private class HTTPClientSpy: HTTPClient {
