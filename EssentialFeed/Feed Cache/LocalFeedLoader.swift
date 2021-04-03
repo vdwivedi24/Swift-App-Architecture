@@ -13,26 +13,26 @@ public final class LocalFeedLoader {
         private let calendar =  Calendar(identifier: .gregorian)
         public typealias SaveResult =  Error?
         public typealias LoadResult = LoadFeedResult
-    
     public init(store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
     }
     public func load(completion: @escaping (LoadResult) -> Void){
-        store.retrieve { [unowned self] result in
+        store.retrieve { [weak self] result in
+            guard let self = self else { return }
              switch result {
              case let .failure(error):
+                self.store.deleteCachedFeed{ _ in }
                 completion(.failure(error))
-                
              case let .found(feed, timestamp) where self.validate(timestamp):
                 completion(.success(feed.toModels()))
-             
-             case .found, .empty:
+             case .found:
+                self.store.deleteCachedFeed{ _ in }
+             case .empty:
                 completion(.success([]))
         }
     }
-    }
-    
+}
     private var maxCacheAgeInDays: Int {
         return 7
     }
