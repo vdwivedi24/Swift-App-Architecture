@@ -14,7 +14,7 @@ public enum RetrieveCacheFeedResult {
     case failure(Error)
 }
 
-public protocol FeedStore{
+public protocol FeedStore {
     
     typealias DeletionCompletion = (Error?) -> Void
     typealias InsertionCompletion = (Error?) -> Void
